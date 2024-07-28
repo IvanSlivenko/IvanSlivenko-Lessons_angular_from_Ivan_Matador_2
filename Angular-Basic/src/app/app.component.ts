@@ -10,10 +10,13 @@ export class AppComponent {
   
   currentvalue = 'test'
   
+  isComponentVisible: boolean = true;
+  
   changeTitle(newTitle: string){
     this.title = newTitle;   
   }
   changeTitle2(newTitle: string){
     this.title = newTitle+this.title;   
   }
+  
 }

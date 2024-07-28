@@ -1,6 +1,11 @@
 <app-show-title 
-    [incomingTitle]="title"  
+    [incomingTitle]="title"
+    *ngIf="isComponentVisible"  
     (outputTitle)="changeTitle($event)"
     (outputTitle2)="changeTitle2($event)"
 
 ></app-show-title>
+<div class="actions">
+    <button (click)="isComponentVisible = true"> Show component</button>
+    <button (click)="isComponentVisible = false"> Hide component</button>
+</div>

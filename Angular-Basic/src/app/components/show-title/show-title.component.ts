@@ -1,11 +1,11 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnDestroy, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-show-title',
   templateUrl: './show-title.component.html',
   styleUrl: './show-title.component.scss'
 })
-export class ShowTitleComponent implements OnInit {
+export class ShowTitleComponent implements OnInit, OnDestroy {
   
   @Input() incomingTitle!: string;
   
@@ -16,9 +16,19 @@ export class ShowTitleComponent implements OnInit {
 
   @Output('outputTitle2') outputTitle2: EventEmitter<string> = new EventEmitter<string>();
   changedTitle2!: string;
+
+  constructor(){
+    console.log('constructor', this.incomingTitle);
+    
+  }
   
   ngOnInit(){
     console.log('ngOnInit :', this.incomingTitle );
+    
+  }
+
+  ngOnDestroy(){
+    console.log('ngOnDestroy');
     
   }
 
@@ -33,5 +43,6 @@ export class ShowTitleComponent implements OnInit {
     
   }
 
-  
+ 
+
 }
